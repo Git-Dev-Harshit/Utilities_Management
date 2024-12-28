@@ -5,17 +5,17 @@
 {% block content %}
 <h2>Assign Tasks to {{ user.username }}</h2>
 <form method="POST" action="{{ url_for('admin.assign_tasks', user_id=user.id) }}">
-    <label for="tasks">Select Tasks:</label>
-    <select id="tasks" name="tasks" multiple>
-        {% for task in all_tasks %}
-        <option value="{{ task.id }}"
-            {% if task.id in user_task_ids %}selected{% endif %}>
-            {{ task.task_name }}
-        </option>
-        {% endfor %}
-    </select>
-    <br>
-    <button type="submit">Assign Tasks</button>
+  <label for="tasks">Select Tasks:</label>
+  <select id="tasks" name="tasks" multiple>
+    {% for task in all_tasks %}
+    <option value="{{ task.id }}"
+      {% if task.id in user_task_ids %}selected{% endif %}>
+      {{ task.task_name }}
+    </option>
+    {% endfor %}
+  </select>
+  <br />
+  <button type="submit">Assign Tasks</button>
 </form>
-<a href="{{ url_for('admin.manage_users') }}">Back to Manage Users</a>
+<a class="back-link" href="{{ url_for('admin.manage_users') }}">Back to Manage Users</a>
 {% endblock %}

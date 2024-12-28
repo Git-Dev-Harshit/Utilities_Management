@@ -1,31 +1,204 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset some default styles for consistency across browsers */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+h1, h2 {
+  color: #333;
+  font-weight: 600;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Navigation Bar */
 nav {
   background-color: #333;
   color: white;
-  padding: 10px;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
   display: flex;
+  justify-content: space-between;
 }
 
-nav ul li {
-  margin-right: 20px;
-}
-
-nav ul li a {
+nav a {
   color: white;
-  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
 }
 
-h2 {
-  color: #333;
+nav a:hover {
+  color: #ddd;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
+
+/* Page Layout */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Page */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f1f1f1;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Dashboard */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+ul li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Forms for Assigning Tasks */
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+select[multiple] {
+  height: 150px;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Back Link */
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #28a745;
+}
+
+a:hover {
+  color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-bottom: 10px;
+  }
+
+  form input[type="text"],
+  form input[type="password"],
+  form button,
+  select {
+    width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
 }

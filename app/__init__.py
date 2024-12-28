@@ -1,6 +1,4 @@
-# app/__init__.py
-
-from flask import Flask
+from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
@@ -40,4 +38,21 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
+    # Add before_request to set up the current user globally
+    @app.before_request
+    def before_request():
+        g.user = get_current_user()  # Set the current user globally
+
+    # Add a context processor to inject 'user' into all templates
+    @app.context_processor
+    def inject_user():
+        return {'user': g.user}
+
     return app
+
+# Function to retrieve the current user (you need to implement this)
+def get_current_user():
+    # Example: Retrieve user from session or JWT token
+    # For example, you could use Flask-Login's `current_user`:
+    from flask_login import current_user
+    return current_user if current_user.is_authenticated else None

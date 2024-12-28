@@ -15,9 +15,11 @@ def restrict_to_admin():
 def manage_users():
     users = User.query.all()
     log_action(current_user.id, 'Accessed manage users page')
-    return render_template('manage_users.html', users=users)
+    return render_template('manage_users.html', users=users, user=current_user)
 
-@admin_bp.route('/assign_tasks')
-def assign_tasks():
-    log_action(current_user.id, 'Accessed assign tasks page')
-    return render_template('assign_tasks.html')
+
+@admin_bp.route('/assign_tasks/<int:user_id>', methods=['GET', 'POST'])
+def assign_tasks(user_id):
+    log_action(current_user.id, f'Accessed assign tasks page for user {user_id}')
+    return render_template('assign_tasks.html', user_id=user_id)
+

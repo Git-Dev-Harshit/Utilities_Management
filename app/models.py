@@ -1,8 +1,11 @@
-from app import db
+# app/models.py
+
+from app import db  # Now db is imported from the app package
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-class User(db.Model, UserMixin):
+# Define the User model
+class User(db.Model, UserMixin):  # db will be available after app creation
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String(500), nullable=False)

@@ -1,14 +1,13 @@
 import os
-import logging
 from datetime import datetime
 
-def setup_logging():
-    log_dir = os.path.join('logs', datetime.now().strftime('%Y-%m'))
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
-    log_file = os.path.join(log_dir, f"{datetime.now().strftime('%d-%b-%Y')}.log")
-    logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(message)s')
+LOG_DIR = 'logs'
 
-def log_action(action, user_id):
-    setup_logging()
-    logging.info(f"User {user_id} performed: {action}")
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+def log_action(user_id, action):
+    date = datetime.now()
+    log_file = os.path.join(LOG_DIR, f"{date.strftime('%Y-%m-%d')}.log")
+    with open(log_file, 'a') as file:
+        file.write(f"[{date}] User {user_id}: {action}\n")

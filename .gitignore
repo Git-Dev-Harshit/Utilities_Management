@@ -1,2 +1,11 @@
 .env
 /.venv
+app/__pycache__
+flask_session
+migrations
+logs
+app/flask_session
+.idea
+__pycache__/
+app/routes/__pycache__/
+app/utils/__pycache__/

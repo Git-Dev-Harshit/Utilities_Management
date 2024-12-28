@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Flask App{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
+  <head>
+    <title>Utilities Management</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li><a href="{{ url_for('user.dashboard') }}">Dashboard</a></li>
-            {% if current_user.role == 'admin' %}
-                <li><a href="{{ url_for('admin.manage_users') }}">Manage Users</a></li>
-            {% endif %}
-            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-        </ul>
+      <a href="{{ url_for('user.dashboard') }}">Dashboard</a>
+      {% if current_user.is_authenticated %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('admin.manage_users') }}">Manage Users</a>
+          <a href="{{ url_for('admin.assign_tasks') }}">Assign Tasks</a>
+        {% endif %}
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('auth.login') }}">Login</a>
+      {% endif %}
     </nav>
-    <div>
-        {% block content %}{% endblock %}
-    </div>
-</body>
+    <main>{% block content %}{% endblock %}</main>
+  </body>
 </html>

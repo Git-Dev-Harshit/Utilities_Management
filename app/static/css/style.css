@@ -1,197 +1,198 @@
-/* Reset some default styles for consistency across browsers */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f7fa;
-  color: #333;
+  font-family: 'Arial', sans-serif;
+  background-color: #F1F1F1; /* Light gray background */
+  color: #202020; /* Dark gray text */
   line-height: 1.6;
-  padding: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: #007BFF;
-}
-
-a:hover {
-  color: #0056b3;
-}
-
-h1, h2 {
-  color: #333;
-  font-weight: 600;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Navigation Bar */
+/* Navbar Styling */
 nav {
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+  background-color: #1C4E80; /* Deep blue */
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
-  color: white;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-right: 20px;
-  transition: color 0.3s ease;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
-  color: #ddd;
+  background-color: #A5D8DD; /* Light blue */
+  color: #fff;
 }
 
-nav a:last-child {
-  margin-right: 0;
+nav .brand {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
 }
 
-/* Page Layout */
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 80px;
   padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Login Page */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px; /* Reduced gap between username and password */
+  max-width: 400px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-form input[type="text"],
-form input[type="password"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+h2 {
+  color: #202020;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, select {
+  padding: 12px 15px;
   font-size: 16px;
+  border: 1px solid #7E909A; /* Muted blue-gray border */
+  border-radius: 8px;
+  background-color: #A5D8DD; /* Light blue background */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-form button {
-  align-self: flex-start;
-  margin-top: 10px;
+input:focus, select:focus {
+  border-color: #0091D5; /* Bright blue border on focus */
+  outline: none;
+  background-color: #fff; /* White background on focus */
 }
 
-/* Table Styles */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #EA6A47; /* Warm coral for action button */
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1C4E80; /* Deep blue on hover */
+}
+
+button:active {
+  transform: scale(0.98); /* Button click effect */
+}
+
+/* Links */
+a {
+  color: #1C4E80; /* Deep blue for links */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #EA6A47; /* Coral on hover */
+}
+
+/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
-  padding: 12px;
+  padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #7E909A; /* Muted blue-gray border */
 }
 
 th {
-  background-color: #f1f1f1;
+  background-color: #1C4E80; /* Deep blue for headers */
+  color: #fff;
 }
 
 tr:hover {
-  background-color: #f9f9f9;
+  background-color: #F1F1F1; /* Light gray on hover */
 }
 
-/* Dashboard */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 ul li {
-  background-color: #f1f1f1;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-}
-
-ul li:hover {
-  background-color: #e0e0e0;
-}
-
-/* Forms for Assigning Tasks */
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-select[multiple] {
-  height: 150px;
-}
-
-form button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #28a745;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: #A5D8DD; /* Light blue background */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
   transition: background-color 0.3s ease;
 }
 
-form button:hover {
-  background-color: #218838;
+ul li:hover {
+  background-color: #F1F1F1; /* Light gray on hover */
 }
 
-/* Back Link */
-a {
-  display: inline-block;
-  margin-top: 20px;
-  color: #28a745;
+footer {
+  margin-top: 50px;
+  text-align: center;
+  color: #7E909A; /* Muted blue-gray for footer text */
+  font-size: 14px;
 }
 
-a:hover {
-  color: #218838;
+/* Assign Tasks Button Color Update */
+.assign-tasks-btn {
+  background-color: #1C4E80; /* Muted green-gray */
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.assign-tasks-btn:hover {
+  background-color: #0091D5; /* Bright blue on hover */
+}
+
+.assign-tasks-btn:active {
+  transform: scale(0.98);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   nav a {
     margin-bottom: 10px;
   }
 
-  form input[type="text"],
-  form input[type="password"],
-  form button,
-  select {
+  form {
     width: 100%;
+    padding: 0 10px;
   }
 
   table {
